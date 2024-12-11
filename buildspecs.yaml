@@ -6,7 +6,7 @@ phases:
       python: 3.9
     commands:
       - echo Installing dependencies...
-      - pip install Flask2.3.2
+      - pip install Flask
  
   build:
     commands:
