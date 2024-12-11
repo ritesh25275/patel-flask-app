@@ -11,15 +11,15 @@ phases:
   build:
     commands:
       - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 590183892616.dkr.ecr.us-east-1.amazonaws.com
+      - aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/i7o1w0g9
       - echo Building the Docker image...
       - docker build -t patel-flask-app .
       - echo Tagging the Docker image...
-      - docker tag patel-flask-app:latest 590183892616.dkr.ecr.us-east-1.amazonaws.com/patel-flask-app:latest
+      - docker tag patel-flask-app:latest patel-flask-app:latest public.ecr.aws/i7o1w0g9/patel-flask-app:latest
       - echo Pushing the Docker image to Amazon ECR...
-      - docker push 590183892616.dkr.ecr.us-east-1.amazonaws.com/patel-flask-app:latest
+      - docker push patel-flask-app:latest public.ecr.aws/i7o1w0g9/patel-flask-app:latest
       - echo Creating imageDefinitions.json for ECS deployment...
-      - echo '[{"name":"patel-flask-app","imageUri":"590183892616.dkr.ecr.us-east-1.amazonaws.com/patel-flask-app:latest"}]' > imageDefinitions.json
+      - echo '[{"name":"patel-flask-app","imageUri":"patel-flask-app:latest public.ecr.aws/i7o1w0g9/patel-flask-app:latest"}]' > imageDefinitions.json
  
 artifacts:
   files:
