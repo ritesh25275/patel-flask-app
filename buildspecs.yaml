@@ -19,7 +19,7 @@ phases:
       - echo Pushing the Docker image to Amazon ECR...
       - docker push public.ecr.aws/i7o1w0g9/patel-flask-app:latest
       - echo Creating imageDefinitions.json for ECS deployment...
-      - echo '[{"name":"patel-flask-app","imageUri":"patel-flask-app:latest public.ecr.aws/i7o1w0g9/patel-flask-app:latest"}]' > imageDefinitions.json
+      - echo '[{"name":"patel-flask-app","imageUri":"public.ecr.aws/i7o1w0g9/patel-flask-app:latest"}]' > imageDefinitions.json
  
 artifacts:
   files:
